@@ -1,0 +1,16 @@
+{
+  "name": "@asla/hono-decorator",
+  "exports": "./src/mod.ts",
+  "version": "0.0.1",
+  "tasks": {
+    "test": "deno run -A npm:vitest run",
+    "check-type": "deno check src test",
+    "check-fmt": "deno fmt --check src test"
+  },
+  "fmt": {
+    "lineWidth": 120
+  },
+  "imports": {
+    "hono": "npm:hono@^4.7.2"
+  }
+}

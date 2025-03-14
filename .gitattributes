@@ -1,0 +1,18 @@
+*.ts    eol=lf
+*.mts   eol=lf
+*.cts   eol=lf
+*.js    eol=lf
+*.mjs   eol=lf
+*.cjs   eol=lf
+
+*.css   eol=lf
+*.html  eol=lf
+
+*.json  eol=lf
+*.jsonc eol=lf
+*.yml   eol=lf
+*.yaml  eol=lf
+
+*.md    eol=lf
+*.sh    eol=lf
+*.sql    eol=lf

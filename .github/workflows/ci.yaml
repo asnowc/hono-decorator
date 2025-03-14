@@ -1,0 +1,26 @@
+name: hono-decorator
+on:
+  push:
+    branches:
+      - "**"
+jobs:
+  test:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: denoland/setup-deno@v2
+        with:
+          deno_version: v2.x
+      - run: deno install
+      - name: Test
+        run: deno task test
+  check:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: denoland/setup-deno@v2
+        with:
+          deno_version: v2.x
+      - run: deno install
+      - run: deno task check-type
+      - run: deno task check-fmt

@@ -1,0 +1,17 @@
+{
+  "name": "@asla/hono-decorator",
+  "version": "0.0.1",
+  "type": "module",
+  "main": "index.js",
+  "scripts": {},
+  "keywords": [],
+  "license": "MIT",
+  "packageManager": "pnpm@10.4.1",
+  "devDependencies": {
+    "vite-tsconfig-paths": "^5.1.4",
+    "vitest": "^3.0.8"
+  },
+  "peerDependencies": {
+    "hono": "^4.7.2"
+  }
+}
