@@ -2,9 +2,11 @@
   "name": "@asla/hono-decorator",
   "version": "0.0.1",
   "type": "module",
-  "main": "index.js",
   "scripts": {},
   "keywords": [],
+  "exports": {
+    ".": "./dist/mod.js"
+  },
   "license": "MIT",
   "packageManager": "pnpm@10.4.1",
   "devDependencies": {
