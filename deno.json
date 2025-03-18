@@ -12,5 +12,9 @@
   },
   "imports": {
     "hono": "npm:hono@^4.7.2"
+  },
+  "license": "MIT",
+  "publish": {
+    "include": ["README.md", "src/**"]
   }
 }

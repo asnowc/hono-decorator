@@ -2,7 +2,6 @@
   "version": "4",
   "specifiers": {
     "npm:hono@^4.7.2": "4.7.4",
-    "npm:vite-tsconfig-paths@^5.1.4": "5.1.4",
     "npm:vitest@^3.0.8": "3.0.8_vite@6.2.1"
   },
   "npm": {
@@ -270,9 +269,6 @@
     "fsevents@2.3.3": {
       "integrity": "sha512-5xoDfX+fL7faATnagmWPpbFtwh/R77WmMMqqHGS65C3vvB0YHrgF+B1YmZ3441tMj5n63k0212XNoJwzlhffQw=="
     },
-    "globrex@0.1.2": {
-      "integrity": "sha512-uHJgbwAMwNFf5mLst7IWLNg14x1CkeqglJb/K3doi4dw6q2IvAAmM/Y81kevy83wP+Sst+nutFTYOGg3d1lsxg=="
-    },
     "hono@4.7.4": {
       "integrity": "sha512-Pst8FuGqz3L7tFF+u9Pu70eI0xa5S3LPUmrNd5Jm8nTHze9FxLTK9Kaj5g/k4UcwuJSXTP65SyHOPLrffpcAJg=="
     },
@@ -361,9 +357,6 @@
     "tinyspy@3.0.2": {
       "integrity": "sha512-n1cw8k1k0x4pgA2+9XrOkFydTerNcJ1zWCO5Nn9scWHTD+5tp8dghT2x1uduQePZTZgd3Tupf+x9BxJjeJi77Q=="
     },
-    "tsconfck@3.1.5": {
-      "integrity": "sha512-CLDfGgUp7XPswWnezWwsCRxNmgQjhYq3VXHM0/XIRxhVrKw0M1if9agzryh1QS3nxjCROvV+xWxoJO1YctzzWg=="
-    },
     "vite-node@3.0.8": {
       "integrity": "sha512-6PhR4H9VGlcwXZ+KWCdMqbtG649xCPZqfI9j2PsK1FcXgEzro5bGHcVKFCTqPLaNKZES8Evqv4LwvZARsq5qlg==",
       "dependencies": [
@@ -372,14 +365,6 @@
         "es-module-lexer",
         "pathe",
         "vite"
-      ]
-    },
-    "vite-tsconfig-paths@5.1.4": {
-      "integrity": "sha512-cYj0LRuLV2c2sMqhqhGpaO3LretdtMn/BVX4cPLanIZuwwrkVl+lK84E/miEXkCHWXuq65rhNN4rXsBcOB3S4w==",
-      "dependencies": [
-        "debug",
-        "globrex",
-        "tsconfck"
       ]
     },
     "vite@6.2.1": {
@@ -430,7 +415,6 @@
     ],
     "packageJson": {
       "dependencies": [
-        "npm:vite-tsconfig-paths@^5.1.4",
         "npm:vitest@^3.0.8"
       ]
     }

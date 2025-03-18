@@ -7,6 +7,6 @@ export function createInitDecorateMeta(): ControllerMeta {
   return { endpoints: new Map(), fieldMetadataMap: new Map(), metadata: new Map() };
 }
 
-export function isController(Class: any) {
+export function isController(Class: any): boolean {
   return !!privateControllerMeta.getClassMetadata(Class);
 }

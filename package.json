@@ -10,7 +10,6 @@
   "license": "MIT",
   "packageManager": "pnpm@10.4.1",
   "devDependencies": {
-    "vite-tsconfig-paths": "^5.1.4",
     "vitest": "^3.0.8"
   },
   "peerDependencies": {

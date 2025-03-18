@@ -1,4 +1,4 @@
-name: hono-decorator
+name: CI
 on:
   push:
     branches:
@@ -10,7 +10,7 @@ jobs:
       - uses: actions/checkout@v4
       - uses: denoland/setup-deno@v2
         with:
-          deno_version: v2.x
+          deno-version: v2
       - run: deno install
       - name: Test
         run: deno task test
@@ -20,7 +20,9 @@ jobs:
       - uses: actions/checkout@v4
       - uses: denoland/setup-deno@v2
         with:
-          deno_version: v2.x
+          deno-version: v2
       - run: deno install
       - run: deno task check-type
       - run: deno task check-fmt
+      - run: deno publish --dry-run
+        if: ${{github.ref_name == 'main'}}
