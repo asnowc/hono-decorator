@@ -9,7 +9,7 @@
     "build": "deno run -A npm:typescript/tsc -p tsconfig.build.json"
   },
   "compilerOptions": {
-    "lib": ["es2024", "dom"]
+    "lib": ["es2023", "deno.window"]
   },
   "fmt": {
     "lineWidth": 120

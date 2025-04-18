@@ -27,5 +27,13 @@ jobs:
       - run: npm publish
         env:
           NODE_AUTH_TOKEN: ${{ secrets.NPM_TOKEN }}
-
+  publish-jsr:
+    if: ${{github.repository_owner == 'asnowc'}}
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: denoland/setup-deno@v2
+        with:
+          deno-version: v2
+      - run: deno run -A scripts/rewrite-deps.ts
       - run: deno publish
