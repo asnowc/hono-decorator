@@ -36,4 +36,5 @@ jobs:
         with:
           deno-version: v2
       - run: deno run -A scripts/rewrite-deps.ts
-      - run: deno publish
+      - run: deno install
+      - run: deno publish --allow-dirty
