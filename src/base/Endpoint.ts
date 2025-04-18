@@ -1,4 +1,5 @@
 import { createInitDecorateMeta, privateControllerMeta } from "./_metadata.ts";
+import type { MetaKey } from "./_MetaDataManage.ts";
 import type { ControllerMeta } from "./_type.ts";
 
 import { DecoratePrivatePropertyError, DecoratorKindError } from "./errors.ts";
@@ -37,7 +38,7 @@ export function Endpoint(path: string, method?: string): EndpointDecorator {
     }
   };
 }
-function getInitDecorateMeta(meta: object): ControllerMeta {
+function getInitDecorateMeta(meta: MetaKey): ControllerMeta {
   let controllerMeta = privateControllerMeta.getMetadata(meta);
   if (!controllerMeta) {
     if (typeof meta !== "object") throw new Error("Unable to retrieve metadata");

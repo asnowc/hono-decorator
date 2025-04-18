@@ -11,7 +11,7 @@ jobs:
       - uses: denoland/setup-deno@v2
         with:
           deno-version: v2
-      - run: deno install
+      - run: deno install --frozen
       - name: Test
         run: deno task test
   check:
@@ -21,7 +21,7 @@ jobs:
       - uses: denoland/setup-deno@v2
         with:
           deno-version: v2
-      - run: deno install
+      - run: deno install --frozen
       - run: deno task check-type
       - run: deno task check-fmt
       - run: deno publish --dry-run

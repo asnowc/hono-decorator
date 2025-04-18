@@ -2,8 +2,7 @@
 
 `@asla/hono-decorator` allows you to define routes, middleware, etc., using ECMA Decorators.
 
-Currently, this is experimental. If you want to try it in your project, you can use git submodules to add this
-repository to your project and compile it yourself using a monorepo.
+Currently, this is experimental.
 
 ECMA Decorators are currently at Stage 3. In the future, they will become part of the JavaScript syntax standard. For
 now, we can use this syntax through TypeScript. We can leverage decorators and decorator metadata to implement decorator
@@ -11,6 +10,11 @@ functionality similar to Nest.
 
 Since Stage 3 decorators do not include parameter decorators, this only considers using decorators for route definition,
 not dependency injection.
+
+## Usage
+
+Deno `deno add jsr:@asla/hono-decorator`
+Node `npm install @asla/hono-decorator`
 
 **A Simple Example**
 
@@ -49,7 +53,7 @@ class TestController {
         <body>
         ${data.body}
         </body>
-      </html>`,
+      </html>`
     );
   })
   @Get("/test3")
@@ -85,7 +89,7 @@ export type EndpointDecoratorTarget = (...args: any[]) => any;
  */
 export type EndpointDecorator<T extends EndpointDecoratorTarget = EndpointDecoratorTarget> = (
   input: T | undefined,
-  context: ClassMethodDecoratorContext<unknown, T> | ClassFieldDecoratorContext<unknown, T>,
+  context: ClassMethodDecoratorContext<unknown, T> | ClassFieldDecoratorContext<unknown, T>
 ) => void;
 
 export declare function Endpoint(path: string, method?: string): EndpointDecorator;
@@ -124,7 +128,7 @@ export type ControllerDecoratorTarget = new (...args: any[]) => any;
  */
 export type ControllerDecorator<T extends ControllerDecoratorTarget = ControllerDecoratorTarget> = (
   input: T,
-  context: ClassDecoratorContext<T>,
+  context: ClassDecoratorContext<T>
 ) => void;
 
 export type ControllerOption = {
@@ -142,7 +146,7 @@ export declare function Controller(option: ControllerOption): ControllerDecorato
 export type MiddlewareDecoratorTarget = ControllerDecoratorTarget | EndpointDecoratorTarget;
 export type MiddlewareDecorator<T extends MiddlewareDecoratorTarget = MiddlewareDecoratorTarget> = (
   input: unknown,
-  context: ClassDecoratorContext | ClassMethodDecoratorContext | ClassFieldDecoratorContext,
+  context: ClassDecoratorContext | ClassMethodDecoratorContext | ClassFieldDecoratorContext
 ) => void;
 ```
 

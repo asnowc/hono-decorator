@@ -2,7 +2,7 @@
 
 `@asla/hono-decorator` 允许您使用 ECMA Decorators 定义路由、中间件等
 
-目前，这是实验性的，如果要在项目中尝试，可以使用 git submodules 将该仓库引入到你的项目中，通过 monorepo 自行编译使用
+目前，这是实验性的
 
 ECMA 装饰器，目前处以 Stage 3。在未来，它将成为 JavaScript 语法标准。而现在，我们可以通过 TypeScript
 使用该语法我们可以利用装饰器和装饰器元数据，实现类似 Nest 的装饰器功能。\
@@ -45,7 +45,7 @@ class TestController {
         <body>
         ${data.body}
         </body>
-      </html>`,
+      </html>`
     );
   })
   @Get("/test3")
@@ -63,6 +63,11 @@ applyController(hono, new TestController());
 await hono.request("/api/test3");
 ```
 
+## 使用
+
+Deno `deno add jsr:@asla/hono-decorator`
+Node `npm install @asla/hono-decorator`
+
 ## API 设计
 
 在应用装饰器后，实际上只是给这个类添加元数据，在调用 `applyController()`
@@ -79,7 +84,7 @@ export type EndpointDecoratorTarget = (...args: any[]) => any;
  */
 export type EndpointDecorator<T extends EndpointDecoratorTarget = EndpointDecoratorTarget> = (
   input: T | undefined,
-  context: ClassMethodDecoratorContext<unknown, T> | ClassFieldDecoratorContext<unknown, T>,
+  context: ClassMethodDecoratorContext<unknown, T> | ClassFieldDecoratorContext<unknown, T>
 ) => void;
 
 export declare function Endpoint(path: string, method?: string): EndpointDecorator;
@@ -118,7 +123,7 @@ export type ControllerDecoratorTarget = new (...args: any[]) => any;
  */
 export type ControllerDecorator<T extends ControllerDecoratorTarget = ControllerDecoratorTarget> = (
   input: T,
-  context: ClassDecoratorContext<T>,
+  context: ClassDecoratorContext<T>
 ) => void;
 
 export type ControllerOption = {
@@ -136,7 +141,7 @@ export declare function Controller(option: ControllerOption): ControllerDecorato
 export type MiddlewareDecoratorTarget = ControllerDecoratorTarget | EndpointDecoratorTarget;
 export type MiddlewareDecorator<T extends MiddlewareDecoratorTarget = MiddlewareDecoratorTarget> = (
   input: unknown,
-  context: ClassDecoratorContext | ClassMethodDecoratorContext | ClassFieldDecoratorContext,
+  context: ClassDecoratorContext | ClassMethodDecoratorContext | ClassFieldDecoratorContext
 ) => void;
 ```
 

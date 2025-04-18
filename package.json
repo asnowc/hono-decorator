@@ -3,7 +3,8 @@
   "version": "0.0.1",
   "type": "module",
   "scripts": {},
-  "keywords": [],
+  "keywords": ["hono", "decorator", "typescript"],
+  "description": "A ECMA decorator for Hono framework.",
   "exports": {
     ".": "./dist/mod.js"
   },
@@ -14,5 +15,22 @@
   },
   "peerDependencies": {
     "hono": "^4.7.2"
-  }
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/asnowc/hono-decorator"
+  },
+  "publishConfig": {
+    "access": "public",
+    "registry": "https://registry.npmjs.org/",
+    "provenance": true
+  },
+  "author": {
+    "name": "Eaviyi",
+    "url": "https://github.com/eavidy"
+  },
+  "engines": {
+    "node": ">=18"
+  },
+  "files": ["dist/**"]
 }
