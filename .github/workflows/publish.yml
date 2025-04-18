@@ -17,4 +17,15 @@ jobs:
       - uses: denoland/setup-deno@v2
         with:
           deno-version: v2
+      - run: deno install --frozen
+      - run: deno task build
+
+      - uses: actions/setup-node@v4
+        with:
+          node-version: 22
+          registry-url: https://registry.npmjs.org
+      - run: npm publish
+        env:
+          NODE_AUTH_TOKEN: ${{ secrets.NPM_TOKEN }}
+
       - run: deno publish

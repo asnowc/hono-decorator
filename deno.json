@@ -5,7 +5,11 @@
   "tasks": {
     "test": "deno run -A npm:vitest run",
     "check-type": "deno check src test",
-    "check-fmt": "deno fmt --check src test"
+    "check-fmt": "deno fmt --check src test",
+    "build": "deno run -A npm:typescript/tsc -p tsconfig.build.json"
+  },
+  "compilerOptions": {
+    "lib": ["es2024", "dom"]
   },
   "fmt": {
     "lineWidth": 120

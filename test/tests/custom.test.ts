@@ -21,7 +21,7 @@ test("Use an Endpoint to set the GET route", async function () {
   });
   function includeRoles(match: Set<string>, input?: Set<string>) {
     if (!input?.size) return false;
-    return match.intersection(input).size > 0;
+    return new Set([...match].filter((x) => input?.has(x))).size > 0;
   }
   const RolesGuard: MiddlewareHandler = async function (ctx, next) {
     const body = await ctx.req.json();
