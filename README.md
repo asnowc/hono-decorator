@@ -1,8 +1,6 @@
 ## Description
 
-`@asla/hono-decorator` allows you to define routes, middleware, etc., using ECMA Decorators.
-
-Currently, this is experimental.
+`@asla/hono-decorator` allows you to define routes, middleware, and more using [ECMA decorators](https://www.typescriptlang.org/docs/handbook/release-notes/typescript-5-0.html#decorators), **currently, this is experimental**.
 
 ECMA Decorators are currently at Stage 3. In the future, they will become part of the JavaScript syntax standard. For
 now, we can use this syntax through TypeScript. We can leverage decorators and decorator metadata to implement decorator
@@ -10,6 +8,8 @@ functionality similar to Nest.
 
 Since Stage 3 decorators do not include parameter decorators, this only considers using decorators for route definition,
 not dependency injection.
+
+`@asla/hono-decorator` requires the ECMA decorator syntax and the ECMA decorator metadata syntax. If you want to try it out, you need TypeScript 5.2 or above. You should also remove the `"experimentalDecorators": true` configuration from your `tsconfig.json` or set it to `false`. For more information, refer to [TypeScript ECMA decorators](https://www.typescriptlang.org/docs/handbook/release-notes/typescript-5-0.html#decorators) and [TypeScript ECMA decorator metadata](https://www.typescriptlang.org/docs/handbook/release-notes/typescript-5-2.html#decorator-metadata).
 
 ## Usage
 
@@ -275,13 +275,73 @@ await hono.request("/create", { method: "POST", body: ADMIN_AND_ROOT }); // 200;
 
 ### Inheritance
 
-If a subclass controller class declares `@Controller({ extends: true })`, the subclass will inherit the routing and
-middleware configurations from the parent class; otherwise, it will ignore all decorators from the parent class.
+If a subclass controller class declares `@Controller({ extends: true })`, then the subclass will inherit the routing and middleware configurations from the parent class. Otherwise, it will ignore all decorators from the parent class.
 
 ```ts
 @Use(bodyLimit({ maxSize: 1024 }))
 @Controller({ basePath: "/animal" })
 class Animal {
   constructor() {}
-  @Get
+  @Get("/eat")
+  eat() {
+    return "Animal eat";
+  }
+  @Get("/speak")
+  speak() {
+    return "Animal speak";
+  }
+}
+
+/**
+ * Animal routing and middleware will not be applied
+ * Add `/fly`
+ */
+class Bird extends Animal {
+  @Get("/fly")
+  fly() {
+    return "Bird fly";
+  }
+}
+/**
+ * Inherit middleware and routing
+ * Add `/animal/sleep`, `/animal/eat`, `/animal/speak`
+ */
+@Controller({ extends: true })
+class Dog extends Animal {
+  @Get("/sleep")
+  sleep() {
+    return "Dog sleep";
+  }
+}
 ```
+
+If `applyController(hono, new Bird())` is called, only `/fly` will be added, and the middleware defined on `Animal` will not take effect. If `applyController(hono, new Dog())` is called, only `/animal/sleep`, `/animal/eat`, `/animal/speak` will be added, and these requests will go through the `bodyLimit` decorator applied on `Animal`.
+
+We can also modify some settings of the parent class in the subclass.
+
+```ts
+/**
+ * Inherit middleware and routing, and modify some settings
+ * Add `/run`, `/eat`, `/speak`
+ * GET `/eat` will respond with `Cat eat`
+ * GET `/speak` will respond with `Cat speak`
+ */
+@Controller({ extends: true, basePath: "" })
+class Cat extends Animal {
+  @Get("/run")
+  run() {
+    return "Cat run";
+  }
+  override eat() {
+    return "Cat eat";
+  }
+  @Get("/speak")
+  catSpeak() {
+    return "Cat speak";
+  }
+}
+```
+
+This example overrides the `basePath`, the `eat()` method, and the `/speak` route.
+
+If `applyController(hono, new Cat())` is called, only `/run`, `/eat`, `/speak` will be added. GET `/eat` will return `Cat eat` and GET `/speak` will return `Cat speak`.
