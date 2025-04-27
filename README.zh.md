@@ -1,12 +1,12 @@
 ## 描述
 
-`@asla/hono-decorator` 允许您使用 [ECMA 装饰器]() 定义路由、中间件等，**目前，这是实验性的**
+`@asla/hono-decorator` 允许您使用 [ECMA 装饰器](https://github.com/tc39/proposal-decorators) 定义路由、中间件等.
 
 ECMA 装饰器，目前处以 Stage 3。在未来，它将成为 JavaScript 语法标准。而现在，我们可以通过 TypeScript
 使用该语法我们可以利用装饰器和装饰器元数据，实现类似 Nest 的装饰器功能。\
 由于 Stage 3 的装饰器不包括参数装饰器，这里只考虑使用装饰器进行路由定义，不考虑依赖注入。
 
-`@asla/hono-decorator` 需要 ECMA 装饰器语和 ECMA 装饰器元数据语法。\
+`@asla/hono-decorator` **目前这是实验性的**，它需要 ECMA 装饰器语和 ECMA 装饰器元数据语法。\
 现在如果你想尝试，需要 TypeScript 5.2 及以上。并删除 `tsconfig.json` 的 `"experimentalDecorators": true` 配置或将它设置为 false\
 参考 [TypeScript ECMA 装饰器](https://www.typescriptlang.org/docs/handbook/release-notes/typescript-5-0.html#decorators) 和
 [TypeScript ECMA 装饰器元数据](https://www.typescriptlang.org/docs/handbook/release-notes/typescript-5-2.html#decorator-metadata)

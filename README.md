@@ -1,6 +1,6 @@
 ## Description
 
-`@asla/hono-decorator` allows you to define routes, middleware, and more using [ECMA decorators](https://www.typescriptlang.org/docs/handbook/release-notes/typescript-5-0.html#decorators), **currently, this is experimental**.
+`@asla/hono-decorator` allows you to define routes, middleware, and more using [ECMA Decorators](https://github.com/tc39/proposal-decorators).
 
 ECMA Decorators are currently at Stage 3. In the future, they will become part of the JavaScript syntax standard. For
 now, we can use this syntax through TypeScript. We can leverage decorators and decorator metadata to implement decorator
@@ -9,7 +9,7 @@ functionality similar to Nest.
 Since Stage 3 decorators do not include parameter decorators, this only considers using decorators for route definition,
 not dependency injection.
 
-`@asla/hono-decorator` requires the ECMA decorator syntax and the ECMA decorator metadata syntax. If you want to try it out, you need TypeScript 5.2 or above. You should also remove the `"experimentalDecorators": true` configuration from your `tsconfig.json` or set it to `false`. For more information, refer to [TypeScript ECMA decorators](https://www.typescriptlang.org/docs/handbook/release-notes/typescript-5-0.html#decorators) and [TypeScript ECMA decorator metadata](https://www.typescriptlang.org/docs/handbook/release-notes/typescript-5-2.html#decorator-metadata).
+`@asla/hono-decorator` **is currently experimental**. It requires the ECMA Decorator syntax and the ECMA Decorator Metadata syntax. If you want to try it out, you need TypeScript 5.2 or above. You should also remove the `"experimentalDecorators": true` configuration from your `tsconfig.json` or set it to `false`. For more information, refer to [TypeScript ECMA decorators](https://www.typescriptlang.org/docs/handbook/release-notes/typescript-5-0.html#decorators) and [TypeScript ECMA decorator metadata](https://www.typescriptlang.org/docs/handbook/release-notes/typescript-5-2.html#decorator-metadata).
 
 ## Usage
 
