@@ -1,5 +1,7 @@
 name: Publish
 on:
+  workflow_dispatch:
+    
   push:
     tags:
       - v*
@@ -13,23 +15,23 @@ jobs:
     if: ${{github.repository_owner == 'asnowc'}}
     runs-on: ubuntu-latest
     steps:
-      - uses: actions/checkout@v4
+      - uses: actions/checkout@v6
       - uses: denoland/setup-deno@v2
         with:
           deno-version: v2
       - run: deno install --frozen
       - run: deno task build
 
-      - uses: actions/setup-node@v4
+      - uses: actions/setup-node@v6
         with:
-          node-version: 22
+          node-version: 26
           registry-url: https://registry.npmjs.org
       - run: npm publish
   publish-jsr:
     if: ${{github.repository_owner == 'asnowc'}}
     runs-on: ubuntu-latest
     steps:
-      - uses: actions/checkout@v4
+      - uses: actions/checkout@v6
       - uses: denoland/setup-deno@v2
         with:
           deno-version: v2
