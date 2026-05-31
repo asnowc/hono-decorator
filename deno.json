@@ -1,7 +1,7 @@
 {
   "name": "@asla/hono-decorator",
   "exports": "./src/mod.ts",
-  "version": "0.0.1",
+  "version": "0.0.2",
   "tasks": {
     "test": "deno x vitest run",
     "check-type": "deno check src test",
