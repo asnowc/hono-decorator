@@ -13,10 +13,7 @@
   },
   "fmt": {
     "lineWidth": 120
-  },
-  "imports": {
-    "hono": "jsr:@hono/hono@^4.7.2"
-  },
+  }, 
   "license": "MIT",
   "publish": {
     "include": ["README.md", "src/**"]

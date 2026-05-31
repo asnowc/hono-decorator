@@ -13,7 +13,9 @@
   "devDependencies": {
     "vitest": "^4.1.7",
     "vite": "^7.3.3",
-    "@deno/vite-plugin": "^2.0.2"
+    "@deno/vite-plugin": "^2.0.2",
+
+    "hono": "4.7.2"
   },
   "peerDependencies": {
     "hono": "^4.7.2"
