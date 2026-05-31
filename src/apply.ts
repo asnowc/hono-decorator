@@ -8,7 +8,11 @@ export type ApplyControllerOption = {
   basePath?: string;
 };
 
-export function applyController(hono: Hono, controller: object, option: ApplyControllerOption = {}): void {
+export function applyController(
+  hono: Hono<any, any>,
+  controller: object,
+  option: ApplyControllerOption = {},
+): void {
   if (typeof controller !== "object" || controller === null) {
     throw new TypeError("The controller must be an object type");
   }
