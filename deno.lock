@@ -3,6 +3,7 @@
   "specifiers": {
     "npm:@deno/vite-plugin@^2.0.2": "2.0.2_vite@7.3.3",
     "npm:hono@4.7.2": "4.7.2",
+    "npm:typescript@^6.0.3": "6.0.3",
     "npm:vite@^7.3.3": "7.3.3",
     "npm:vitest@^4.1.7": "4.1.7_vite@7.3.3"
   },
@@ -628,6 +629,11 @@
       "integrity": "sha512-Bf+ILmBgretUrdJxzXM0SgXLZ3XfiaUuOj/IKQHuTXip+05Xn+uyEYdVg0kYDipTBcLrCVyUzAPz7QmArb0mmw==",
       "tarball": "https://registry.npmmirror.com/tinyrainbow/-/tinyrainbow-3.1.0.tgz"
     },
+    "typescript@6.0.3": {
+      "integrity": "sha512-y2TvuxSZPDyQakkFRPZHKFm+KKVqIisdg9/CZwm9ftvKXLP8NRWj38/ODjNbr43SsoXqNuAisEf1GdCxqWcdBw==",
+      "bin": true,
+      "tarball": "https://registry.npmmirror.com/typescript/-/typescript-6.0.3.tgz"
+    },
     "vite@7.3.3": {
       "integrity": "sha512-/4XH147Ui7OGTjg3HbdWe5arnZQSbfuRzdr9Ec7TQi5I7R+ir0Rlc9GIvD4v0XZurELqA035KVXJXpR61xhiTA==",
       "dependencies": [
@@ -686,6 +692,7 @@
       "dependencies": [
         "npm:@deno/vite-plugin@^2.0.2",
         "npm:hono@4.7.2",
+        "npm:typescript@^6.0.3",
         "npm:vite@^7.3.3",
         "npm:vitest@^4.1.7"
       ]

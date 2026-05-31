@@ -3,6 +3,7 @@
   "exports": "./src/mod.ts",
   "version": "0.0.2",
   "tasks": {
+    "publish-dry": "deno publish --allow-dirty --dry-run",
     "test": "deno x vitest run",
     "check-type": "deno check src test",
     "check-fmt": "deno fmt --check src test",

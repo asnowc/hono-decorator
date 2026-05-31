@@ -39,8 +39,10 @@ export function applyController(
     };
     const middleware: MiddlewareHandler[] = [entryHandler, ...(endpointApplyMeta.useMiddlewares ?? [])];
     if (!endpointApplyMeta.method) {
+      //@ts-ignore hono.all() type does not support variadic middleware, but it actually works
       hono.all(path, ...middleware, handler);
     } else {
+      //@ts-ignore hono.on() type does not support variadic middleware, but it actually works
       hono.on(endpointApplyMeta.method, path, ...middleware, handler);
     }
   }
